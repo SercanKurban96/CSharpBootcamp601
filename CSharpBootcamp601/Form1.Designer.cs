@@ -38,7 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCustomerBalance = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtCustomerShoppingAmount = new System.Windows.Forms.TextBox();
+            this.txtCustomerShoppingCount = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnList = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 32);
+            this.label1.Location = new System.Drawing.Point(10, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 20);
@@ -77,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 67);
+            this.label2.Location = new System.Drawing.Point(10, 67);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 20);
@@ -95,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 102);
+            this.label3.Location = new System.Drawing.Point(10, 102);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 20);
@@ -113,7 +113,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 137);
+            this.label4.Location = new System.Drawing.Point(10, 137);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 20);
@@ -131,20 +131,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(68, 172);
+            this.label5.Location = new System.Drawing.Point(10, 172);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "Bakiye:";
             // 
-            // txtCustomerShoppingAmount
+            // txtCustomerShoppingCount
             // 
-            this.txtCustomerShoppingAmount.Location = new System.Drawing.Point(141, 204);
-            this.txtCustomerShoppingAmount.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCustomerShoppingAmount.Name = "txtCustomerShoppingAmount";
-            this.txtCustomerShoppingAmount.Size = new System.Drawing.Size(199, 27);
-            this.txtCustomerShoppingAmount.TabIndex = 11;
+            this.txtCustomerShoppingCount.Location = new System.Drawing.Point(141, 204);
+            this.txtCustomerShoppingCount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCustomerShoppingCount.Name = "txtCustomerShoppingCount";
+            this.txtCustomerShoppingCount.Size = new System.Drawing.Size(199, 27);
+            this.txtCustomerShoppingCount.TabIndex = 11;
             // 
             // label6
             // 
@@ -175,6 +175,7 @@
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Ekle";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -218,7 +219,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnList);
-            this.Controls.Add(this.txtCustomerShoppingAmount);
+            this.Controls.Add(this.txtCustomerShoppingCount);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtCustomerBalance);
             this.Controls.Add(this.label5);
@@ -252,7 +253,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCustomerBalance;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCustomerShoppingAmount;
+        private System.Windows.Forms.TextBox txtCustomerShoppingCount;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnList;
         private System.Windows.Forms.Button btnAdd;
