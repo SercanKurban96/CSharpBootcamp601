@@ -187,3 +187,5 @@ MongoDb'ye giderek sol tarafta yer alan localhost:27017'nin yanında üç noktay
 ![image](https://github.com/user-attachments/assets/f35cab9a-a20b-469e-b2df-8ee25a51ea19)
 
 Veri tabanımız artık hazır. İçerisine geldiğimiz zaman Customers tablosu çıkacaktır. Tabloya bastıktan sonra verimiz bu şekilde gelecektir.
+
+✅ Bu eğitimde MongoDb'nin kurulumunu, veri tabanını bağlamayı ve oluşturmayı, MongoDb ile veri eklemeyi öğrendim ve uyguladım.
