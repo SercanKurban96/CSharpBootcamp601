@@ -16,7 +16,7 @@ Kuracağımız paketler MongoDB.Bson ve MongoDB.Driver olacaktır.
 
 Paketler kurulduktan sonra Entities klasörüne yeni bir tane class ekliyoruz ve ismini Customer olarak belirliyoruz.
 
-![image](https://github.com/user-attachments/assets/b42763de-b2a4-4ccb-8f88-aa80610587ce)
+![image](https://github.com/user-attachments/assets/5232a847-7db6-4801-99fe-1e05d3b9808a)
 
 Customer'a ait entitylerimizi girdikten sonra ID kısmında 2 tane Attribute eklememiz gerekmektedir. Bunlardan ilki BsonId, ikincisi ise BsonRepresentation olacaktır. BsonRepresentation'dan sonra içine BsonType.ObjectId ekliyoruz.
 
@@ -189,3 +189,61 @@ MongoDb'ye giderek sol tarafta yer alan localhost:27017'nin yanında üç noktay
 Veri tabanımız artık hazır. İçerisine geldiğimiz zaman Customers tablosu çıkacaktır. Tabloya bastıktan sonra verimiz bu şekilde gelecektir.
 
 ✅ Bu eğitimde MongoDb'nin kurulumunu, veri tabanını bağlamayı ve oluşturmayı, MongoDb ile veri eklemeyi öğrendim ve uyguladım.
+
+
+## 🖥️ C# Eğitim Kampı Ders 25 - C# ile MongoDb Kullanımı 2
+### 📆 Tarih: 28 Aralık 2024
+
+CustomerOperations sınıfından devam ediyoruz.
+
+![image](https://github.com/user-attachments/assets/e262a33e-2880-429a-a5bb-080b1d602f7c)
+
+Burada müşterileri listelemek için GetAllCustomer adında yeni bir metot tanımlıyoruz. İlk olarak connection isminde bir değişken oluşturup MongoDbConnection ile veri tabanına erişim sağlıyoruz. Sonra customersCollection isminde bir değişken oluşturup connection'dan sonra GetCustomersCollection diyerek tabloya erişim sağlıyoruz. Daha sonra customers adında bir değişken oluşturup Find metodunu kullanarak listeleme işlemi yapıyoruz ve bu listeleme işlemini BsonDocument kullanarak yapıyoruz. Listeleme işlemi için List kullanarak entity'e ait olan Customer'ı ekliyoruz ve foreach döngüsünü kullanıyoruz. Döngüyü kullandıktan sonra her bir sütunu tek tek ekliyoruz ve en sonunda return ile işlemimizi tamamlıyoruz.
+
+![image](https://github.com/user-attachments/assets/82a57161-5e9e-4ca2-9e89-535b7c137970)
+
+Formumuza giderek bu kez Listele butonuna tıklıyoruz ve ilgili kodlarımızı yazıyoruz.
+
+![image](https://github.com/user-attachments/assets/57053fea-f29e-4504-abed-4bd8de33ca0b)
+
+Listele butonuna tıkladığımız zaman verileri gösterecektir.
+
+![image](https://github.com/user-attachments/assets/2059e130-9a10-4439-b878-2d26506a5ee2)
+
+Tekrardan CustomerOperations sınıfına gelip bu kez silme işlemi uyguluyoruz. İlk iki satır diğer metotlarda da olduğu gibi verilere bağlanmayı ve tabloya erişimi sağlıyoruz. Daha sonra filter adında bir değişken oluşturup Builders adında bir komut ekleyip BsonDocument'i ekliyoruz, burada Filter ve Eq komutlarını kullanarak veriyi id'ye göre bulma işlemi uyguluyoruz. Silmek için ise MongoDb'ye ait olan DeleteOne komutunu kullanıyoruz.
+
+![image](https://github.com/user-attachments/assets/eab3ce89-73ec-47a2-ae2c-62c1eb918e72)
+
+Burada silme işleminde de olduğu gibi filter değişkenini kullanarak id'yi buluyoruz. İlgili id'yi bulduktan sonra güncellemek için updatedValue isminde bir değişken oluşturup Builders dedikten sonra BsonDocument ile Update komutunu kullanıyoruz. Güncellemek için Set isminde bir komut kullanıp tek tek atamalar yaparak güncelleme işlemini yapıyoruz. En son kısımda ise UpdateOne komutunu kullanarak güncelleme işlemi yapıyoruz.
+
+![image](https://github.com/user-attachments/assets/ed12ba50-7ab4-4937-a931-f2d82278ac2c)
+
+ID'ye göre getirme işlemi için önce bağlantıyı oluşturup sonra koleksiyona bağlanıyoruz. Koleksiyona bağlandıktan sonra ID'ye göre filtreleme yapıyoruz. Sonrasında tek bir veri getireceğimiz için FirstOrDefault komutunu kullanıyoruz. Return işlemi için ise new Customer dedikten sonra tek tek atamalarımızı yapıyoruz.
+
+CRUD işlemleri tamamlandıktan sonra tekrar Form'a geliyoruz ve Sil butonuna tıklıyoruz.
+
+![image](https://github.com/user-attachments/assets/0f1ef32a-fdc9-4680-a398-7dacd7226759)
+
+Silme işlemi için string türünde bir tane customerID değişkeni oluşturup ilgili textbox'a atama yaptık. Ardından customerOperations değişkeni ile DeleteCustomer metodunu buraya çağırıp id'ye göre silme işlemi oluşturduk.
+
+![image](https://github.com/user-attachments/assets/24077ced-d6a6-4eee-91d3-8302b1af3fb8)
+
+Programımızı çalıştırdığımız zaman burada yer alan ID'yi kopyalayıp ilgili textbox'a yapıştırıyoruz ve Sil butonuna tıkladıktan sonra ilgili veri silinecektir.
+
+![image](https://github.com/user-attachments/assets/17504f6f-4b81-46fc-a282-08cbbdfe3cfc)
+
+Güncelleme işlemi için string türünde bir tane id değişkeni oluşturup ilgili textbox'a atama yaptık. Ardından var türünden updateCustomer adında bir değişken oluşturup new Customer dedikten sonra tek tek atamaları yapıyoruz. Ardından customerOperations değişkeni ile UpdateCustomer metodunu buraya çağırıp id'ye göre güncelleme işlemi oluşturduk.
+
+![image](https://github.com/user-attachments/assets/363595f2-f23d-4436-bcef-c96a2a878d2e)
+
+ID'yi ilgili textbox'a ekledikten sonra güncelleyeceğimiz verileri giriyoruz ve Güncelle butonuna bastıktan sonra ilgili veriler güncellenecektir.
+
+![image](https://github.com/user-attachments/assets/ba26fdac-3bf0-4561-8ec4-e5075c2abcf7)
+
+ID'ye Göre Getir adında yeni bir buton daha ekledik.
+
+![image](https://github.com/user-attachments/assets/2f8f16d2-2936-4fd8-a345-a6bcbd610c29)
+
+Buradan string türünde bir id değişkeni oluşturup ilgili textbox'a atadık. Ardından Customer sınıfından bir tane customers oluşturup GetCustomerByID metoduna atadık. Ardından datagridview'de göstermiş olduk.
+
+✅ Bu eğitimde C# ve MongoDb ile CRUD işlemlerinin nasıl yapıldığını öğrendim ve uyguladım.
